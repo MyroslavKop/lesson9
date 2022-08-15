@@ -8,13 +8,13 @@
 
 // function getDiffDays(startDate, endDate) {
 //   let dataParse = Date.parse(endDate) - Date.parse(startDate);
-//   const DAY_IN_MILLISECONDS = Math.ceil(dataParse / (1000 * 60 * 60 * 24));
+//   const DAY_IN_MILLISECONDS = 1000 * 60 * 60 * 24;
 //   if (startDate > endDate) {
 //     return console.error("Your start date is later than end");
 //   } else if (isNaN(dataParse)) {
 //     return console.error("Ivalid Data");
 //   } else {
-//     return DAY_IN_MILLISECONDS;
+//     return Math.ceil(dataParse / DAY_IN_MILLISECONDS);
 //   }
 // }
 
@@ -27,12 +27,7 @@
 
 // function isWeekend(date) {
 //   let dayOfWeek = new Date(date).getDay();
-//   let dataCheck = dayOfWeek === 0 || dayOfWeek === 6;
-//   if (dataCheck) {
-//     return dataCheck;
-//   } else {
-//     return dataCheck;
-//   }
+//   return dayOfWeek === 0 || dayOfWeek === 6;
 // }
 // console.log(isWeekend("2022-02-12"));
 // console.log(isWeekend("2022-02-13"));
@@ -40,13 +35,21 @@
 
 // Задача №4--------------------------------------------------------------------/
 
-// const person = {
-//   fullName: "Sherlock Holmes",
-//   address: {
-//     street: "Baker Street",
-//     city: "London",
-//     house: "221b",
-//   },
-// };
-// let json = JSON.stringify(person);
-// let parsedPerson = JSON.parse(json);
+const person = {
+  fullName: "Sherlock Holmes",
+  address: {
+    street: "Baker Street",
+    city: "London",
+    house: "221b",
+  },
+};
+let json = JSON.stringify(person);
+let parsedPerson = JSON.parse(json);
+
+const {
+  fullName,
+  address: { street, city, house },
+} = person;
+console.log(
+  `Моё имя ${fullName}. Я живу по адресу ${city}, ${street}, ${house}`
+);
